@@ -5,8 +5,8 @@ AS = nasm
 LD = ld
 ASFLAGS = -f elf64 
 LDFLAGS = -o
-TARGET = my_program
-SOURCES = main.asm utils.asm
+TARGET = main
+SOURCES = main.asm 
 OBJECTS = $(SOURCES:.asm=.o)
 
 # Default target
@@ -14,7 +14,7 @@ all: $(TARGET)
 
 # Link the target
 $(TARGET): $(OBJECTS)
-	$(LD) $(LDFLAGS) $@ $(OBJECTS)
+	$(LD) $(OBJECTS) -o $(TARGET)
 
 # Compile assembly files into object files
 %.o: %.asm
